@@ -46,3 +46,15 @@ class Item:
         Применяет установленную скидку для конкретного товара.
         """
         self.price *= Item.pay_rate
+
+    @classmethod
+    def instantiate_from_csv(cls):
+        """
+        класс-метод, инициализирующий экземпляры класса Item данными из файла src/items.csv
+        """
+        csv_path = os.path.join("..", "src", ".", "items.csv")
+        with open(csv_path) as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                name, price, quantity = row.values()
+                cls(name, float(price), int(quantity))
