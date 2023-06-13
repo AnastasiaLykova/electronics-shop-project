@@ -58,3 +58,13 @@ class Item:
             for row in reader:
                 name, price, quantity = row.values()
                 cls(name, float(price), int(quantity))
+
+    @staticmethod
+    def string_to_number(number_string: str):
+        """
+        Статический метод, возвращающий число из числа-строки.
+
+        :param number_string: Число в виде строки.
+        :return: Число.
+        """
+        return int(float(number_string))
