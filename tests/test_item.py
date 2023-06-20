@@ -40,3 +40,9 @@ def test_repr(item_smartphone):
 
 def test_str(item_smartphone):
     assert str(item_smartphone) == 'Смартфон'
+
+
+def test_add(item_smartphone):
+    assert item_smartphone + item_smartphone == 40
+    with pytest.raises(ValueError):
+        item_smartphone + 10
