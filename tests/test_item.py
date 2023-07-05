@@ -1,5 +1,6 @@
 import pytest
 from src.item import Item
+from src.item import InstantiateCSVError
 
 
 @pytest.fixture
@@ -46,3 +47,8 @@ def test_add(item_smartphone):
     assert item_smartphone + item_smartphone == 40
     with pytest.raises(ValueError):
         item_smartphone + 10
+
+
+def test_errors():
+    with pytest.raises(InstantiateCSVError):
+        Item.instantiate_from_csv("items_test.csv")
